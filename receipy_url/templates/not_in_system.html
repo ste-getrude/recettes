@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="row" id="title"> 
+		<h1>{{url_parse.get_title}}</h1>
+	</div>
+	
+	<div class="row" id="yield">
+		<h4>{{url_parse.get_yield}}</h4>
+	</div>
+	
+	<div class="row" id="ingredient-steps">
+	
+		<div class="col section" id="ingredient">
+			<div class="row section-title">
+				<h6>Ingredients</h6>
+			</div>
+			<div class="row section-content">
+				{% for row in url_parse.get_ingredient_list_raw %}
+					<div class="row ingredient_item">
+						{{ row }}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		
+		<div class="col section" id="steps">
+			<div class="row section-title">
+				<h6>Steps</h6>
+			</div>
+			<div class="row section-content">
+				{% for row in url_parse.get_steps_list_raw %}
+					<div class="row steps_item">
+						{{row}} 
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+		
+	</div>
+{% endblock %}
